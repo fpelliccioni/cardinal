@@ -274,7 +274,7 @@ const char* especiales(int n, tipo e) {
     switch (e) {
         case tipo::apocopado: return especiales_apocopado(n);
         case tipo::femenino:  return especiales_femenino(n);
-        default:                return especiales_masculino(n);
+        default:              return especiales_masculino(n);
     }
 }
 

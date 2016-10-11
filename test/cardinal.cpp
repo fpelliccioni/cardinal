@@ -137,9 +137,10 @@ TEST_CASE("masculinos", "masculinos") {
     REQUIRE(cardinal(detail::power(uint64_t(10), 12)) == "un billón");
     REQUIRE(cardinal(detail::power(uint64_t(10), 18)) == "un trillón");
 
+#ifdef CONFIG_INT128
     // No sé que pasa en Travis/Clang 3.6 que no estoy obteniendo el resultado esperado.
     // REQUIRE(cardinal(detail::power(__uint128_t(10), 24)) == "un cuatrillón");
-
+#endif
 
     // numeros_grandes
     REQUIRE(cardinal(1000000) == "un millón");
@@ -152,6 +153,7 @@ TEST_CASE("masculinos", "masculinos") {
     REQUIRE(cardinal(125189117289024ull) == "ciento veinticinco billones ciento ochenta y nueve mil ciento diecisiete millones doscientos ochenta y nueve mil veinticuatro");
     REQUIRE(cardinal(123123456123456ull) == "ciento veintitrés billones ciento veintitrés mil cuatrocientos cincuenta y seis millones ciento veintitrés mil cuatrocientos cincuenta y seis");
 
+#ifdef CONFIG_INT128
     {
     __uint128_t tmp = 125189117289024ull;
     REQUIRE(cardinal(tmp) == "ciento veinticinco billones ciento ochenta y nueve mil ciento diecisiete millones doscientos ochenta y nueve mil veinticuatro");
@@ -174,6 +176,7 @@ TEST_CASE("masculinos", "masculinos") {
     // cout << cardinal(tmp) << endl;
  //    // REQUIRE(cardinal(tmp) == "ciento veintitrés mil ciento veintitrés cuatrillones ciento veintitrés mil ciento veintitrés trillones ciento veintitrés mil ciento veintitrés billones ciento veintitrés mil cuatrocientos cincuenta y seis millones ciento veintitrés mil cuatrocientos cincuenta y seis");
  //    }
+#endif    
 
 }
 
