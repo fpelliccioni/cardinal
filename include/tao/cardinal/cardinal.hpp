@@ -9,9 +9,8 @@
 #ifndef TAO_CARDINAL_CARDINAL_HPP
 #define TAO_CARDINAL_CARDINAL_HPP
 
-//#include <tao/algorithm/detail/config/prefix.hpp>
-
 #include <cmath>
+#include <iterator>
 #include <limits>
 #include <string>
 #include <utility>

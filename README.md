@@ -16,19 +16,19 @@ Cardinal
 [![Code Climate](https://codeclimate.com/github/fpelliccioni/cardinal/badges/gpa.svg)](https://codeclimate.com/github/fpelliccioni/cardinal)
  -->
 
-> C++14 Cardinal Library
+> C++14/17 Cardinal Library
 
 
 ## Introduction ##
 
-**Cardinal** is a **C++14** library to convert Natural numbers to ["numerales cardinales"](http://lema.rae.es/dpd/srv/search?id=rqV8h362gD62vc21qB) (Spanish text representation).
+**Cardinal** is a **C++14/17** library to convert Natural numbers to ["numerales cardinales"](http://lema.rae.es/dpd/srv/search?id=rqV8h362gD62vc21qB) (Spanish text representation).
 
 
 ## Overview
 <!--  -->
 ```cpp
 #include <iostream>
-#include "cardinal.hpp"
+#include <tao/cardinal.hpp>
 
 int main() {
 	std::cout << tao::cardinal(424242);
