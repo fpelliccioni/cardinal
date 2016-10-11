@@ -1,4 +1,4 @@
-Cardinal# Tao.Cardinal
+# Tao.Cardinal
 #
 # Copyright Fernando Pelliccioni 2016
 # Distributed under the Boost Software License, Version 1.0. (See accompanying
