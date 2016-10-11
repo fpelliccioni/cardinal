@@ -73,8 +73,6 @@ I power(I x, I2 n) {
 	return res;
 }
 
-
-
 inline constexpr  
 tipo apocopar(tipo e) {
 	if (e == tipo::masculino) return tipo::apocopado;
@@ -140,7 +138,7 @@ const char* centena(int n, tipo e) {
 	switch (e) {
 		case tipo::apocopado: return centena_apocopado(n);
 		case tipo::femenino:  return centena_femenino(n);
-		default:                return centena_masculino(n);
+		default:              return centena_masculino(n);
 	}
 }
 
