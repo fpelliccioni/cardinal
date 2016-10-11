@@ -138,8 +138,7 @@ TEST_CASE("masculinos", "masculinos") {
     REQUIRE(cardinal(detail::power(uint64_t(10), 18)) == "un trillón");
 
 #ifdef CONFIG_INT128
-    // No sé que pasa en Travis/Clang 3.6 que no estoy obteniendo el resultado esperado.
-    // REQUIRE(cardinal(detail::power(__uint128_t(10), 24)) == "un cuatrillón");
+    REQUIRE(cardinal(detail::power(__uint128_t(10), 24)) == "un cuatrillón");
 #endif
 
     // numeros_grandes
