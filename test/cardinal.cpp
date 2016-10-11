@@ -132,10 +132,10 @@ TEST_CASE("masculinos", "masculinos") {
     REQUIRE((cardinal(916543) == "novecientos dieciséis mil quinientos cuarenta y tres"));
 
     // millones
-    REQUIRE((cardinal(power(uint32_t(10), 6)) == "un millón"));
-    REQUIRE((cardinal(power(uint64_t(10), 12)) == "un billón"));
-    REQUIRE((cardinal(power(uint64_t(10), 18)) == "un trillón"));
-    REQUIRE((cardinal(power(__uint128_t(10), 24)) == "un cuatrillón"));
+    REQUIRE((cardinal(detail::power(uint32_t(10), 6)) == "un millón"));
+    REQUIRE((cardinal(detail::power(uint64_t(10), 12)) == "un billón"));
+    REQUIRE((cardinal(detail::power(uint64_t(10), 18)) == "un trillón"));
+    REQUIRE((cardinal(detail::power(__uint128_t(10), 24)) == "un cuatrillón"));
 
 
     // numeros_grandes
@@ -167,7 +167,7 @@ TEST_CASE("masculinos", "masculinos") {
     }
 
  //    {
-    // auto tmp = power(__uint128_t(10), 30);
+    // auto tmp = detail::power(__uint128_t(10), 30);
     // cout << cardinal(tmp) << endl;
  //    // REQUIRE((cardinal(tmp) == "ciento veintitrés mil ciento veintitrés cuatrillones ciento veintitrés mil ciento veintitrés trillones ciento veintitrés mil ciento veintitrés billones ciento veintitrés mil cuatrocientos cincuenta y seis millones ciento veintitrés mil cuatrocientos cincuenta y seis"));
  //    }

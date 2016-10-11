@@ -300,27 +300,28 @@ std::pair<int, I> divisor(I n) {
     return {0, 0};
 }
 
-std::string tres_digitos(int n, tipo e = tipo::masculino) {
+template <Integer I>
+std::string tres_digitos(I n, tipo e = tipo::masculino) {
     //precondition: n >= 0 && n < 1000
 
-    if (n == 100) {
+    if (n == I(100)) {
         return centena_apocopado(1);
     }
 
     std::string res;
 
-    if (n > 100) {
-        auto tmp = n / 100;
-        n %= 100;
-        res += centena(tmp, n == 0 ? apocopar(e) : desapocopar(e));
+    if (n > I(100)) {
+        auto tmp = n / I(100);
+        n %= I(100);
+        res += centena(tmp, n == I(0) ? apocopar(e) : desapocopar(e));
         if (n == 0) return res;
         res += ' ';
     }
 
-    if (n >= 30) {
-        res += decena(n / 10);
-        n %= 10;
-        if (n == 0) return res;
+    if (n >= I(30)) {
+        res += decena(n / I(10));
+        n %= I(10);
+        if (n == I(0)) return res;
         res += " y ";
     }
 
