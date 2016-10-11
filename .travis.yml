@@ -33,7 +33,7 @@ matrix:
     #   addons: *clang35
 
     # clang-3.6
-    - env: CLANG_VERSION=3.6 CXX_FLAGS="-std=c++11" BUILD_TYPE=Debug
+    - env: CLANG_VERSION=3.6 CXX_FLAGS="-std=c++1z" BUILD_TYPE=Debug
       os: linux
       addons: &clang36
         apt:
