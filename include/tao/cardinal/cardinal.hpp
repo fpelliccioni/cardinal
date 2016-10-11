@@ -12,7 +12,9 @@
 //#include <tao/algorithm/detail/config/prefix.hpp>
 
 #include <cmath>
+#include <limits>
 #include <string>
+#include <utility>
 
 // Concepts:
 #define Integer typename
@@ -276,16 +278,16 @@ template <Integer I>
 constexpr
 size_t first_exponent_idx() {
 	size_t i(0);
-	while (i < size(config::exponents) && config::exponents[i] > std::numeric_limits<I>::digits10) {
+	while (i < std::size(config::exponents) && config::exponents[i] > std::numeric_limits<I>::digits10) {
 		++i;
 	}
 	return i;
 }
 
 template <Integer I>
-pair<int, I> divisor(I n) {
+std::pair<int, I> divisor(I n) {
 	auto i = first_exponent_idx<I>();
-	while (i != size(config::exponents)) {
+	while (i != std::size(config::exponents)) {
 		int exp = config::exponents[i];
 		I divisor = power(I(10), exp);
 		if (divisor <= n) return {exp, divisor};
