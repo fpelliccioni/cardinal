@@ -10,7 +10,6 @@
 #define TAO_CARDINAL_CARDINAL_HPP
 
 #include <cmath>
-#include <iterator>
 #include <limits>
 #include <string>
 #include <utility>
@@ -56,6 +55,12 @@ const char* exponents_str(int x, bool plural = true) {
 
 namespace detail { 
 
+template <typename T, std::size_t N>
+constexpr 
+std::size_t size(const T (&)[N]) noexcept {
+    return N;
+}
+
 //TODO: Optimizar usando el Método de Multiplicación Egipcia.
 template <Integer I, Integer I2>
 constexpr 
@@ -67,6 +72,8 @@ I power(I x, I2 n) {
 	}
 	return res;
 }
+
+
 
 inline constexpr  
 tipo apocopar(tipo e) {
@@ -277,7 +284,7 @@ template <Integer I>
 constexpr
 size_t first_exponent_idx() {
 	size_t i(0);
-	while (i < std::size(config::exponents) && config::exponents[i] > std::numeric_limits<I>::digits10) {
+	while (i < size(config::exponents) && config::exponents[i] > std::numeric_limits<I>::digits10) {
 		++i;
 	}
 	return i;
@@ -286,7 +293,7 @@ size_t first_exponent_idx() {
 template <Integer I>
 std::pair<int, I> divisor(I n) {
 	auto i = first_exponent_idx<I>();
-	while (i != std::size(config::exponents)) {
+	while (i != size(config::exponents)) {
 		int exp = config::exponents[i];
 		I divisor = power(I(10), exp);
 		if (divisor <= n) return {exp, divisor};
