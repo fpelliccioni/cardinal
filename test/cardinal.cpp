@@ -5,6 +5,7 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
+#include <iostream>
 
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
@@ -135,6 +136,9 @@ TEST_CASE("masculinos", "masculinos") {
     REQUIRE((cardinal(detail::power(uint32_t(10), 6)) == "un millón"));
     REQUIRE((cardinal(detail::power(uint64_t(10), 12)) == "un billón"));
     REQUIRE((cardinal(detail::power(uint64_t(10), 18)) == "un trillón"));
+
+    std::cout << cardinal(detail::power(__uint128_t(10), 24)) << std::endl;
+
     REQUIRE((cardinal(detail::power(__uint128_t(10), 24)) == "un cuatrillón"));
 
 

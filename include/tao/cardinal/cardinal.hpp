@@ -352,7 +352,7 @@ std::string cardinal(I n, tipo e = tipo::masculino) {
 
             if (quotient >= 1000) {
                 res += cardinal(quotient) + ' ';
-            } else if (quotient < 1000 && quotient > 1) {
+            } else if (quotient > 1 && quotient < 1000) {
                 res += detail::tres_digitos(quotient, detail::apocopar(e)) + ' ';
             }
             res += config::exponents_str(exp, quotient > 1);
